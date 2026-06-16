@@ -41,6 +41,8 @@ The build should:
 - Exclude development files with `.dockerignore`
 - Produce clear build logs
 
+The current build foundation uses a non-root NGINX runtime on port `8080`, a small static application, and a `/healthz` endpoint that future Kubernetes probes and deployment checks can reuse.
+
 ### 3. Tag
 
 Images should use immutable, traceable tags.
@@ -156,8 +158,6 @@ Examples:
 
 Planned additions:
 
-- `Dockerfile`
-- `.dockerignore`
 - `.github/workflows/build.yml`
 - `.github/workflows/deploy.yml`
 - `k8s/deployment.yaml`

@@ -1,0 +1,11 @@
+.git
+.github
+docs
+k8s
+scripts
+README.md
+.DS_Store
+*.log
+*.tmp
+node_modules
+coverage
