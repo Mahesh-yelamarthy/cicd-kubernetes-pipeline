@@ -58,14 +58,17 @@ The Dockerfile is designed with production delivery practices in mind:
 
 ## Future CI Usage
 
-The future GitHub Actions build workflow should:
+The GitHub Actions build workflow should:
 
 1. Check out the repository.
 2. Validate the Dockerfile and NGINX configuration.
 3. Build the image.
 4. Tag the image with the Git commit SHA.
-5. Push the image only after validation succeeds.
-6. Pass the immutable image tag to deployment automation.
+5. Preserve build evidence for review.
+6. Push the image only after a future release workflow adds registry controls.
+7. Pass the immutable image tag to deployment automation.
+
+See [CI build workflow](ci-workflow.md) for the current workflow behavior.
 
 ## Kubernetes Readiness
 

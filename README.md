@@ -23,9 +23,9 @@ The pipeline will gradually cover:
 
 ## Current Status
 
-Day 6 container build foundation is complete.
+Day 9 CI build workflow is complete.
 
-The repository now includes a production-oriented Dockerfile, a minimal static workload, NGINX runtime configuration, build context controls, and container build documentation. GitHub Actions workflows, Kubernetes manifests, and rollback scripts will be added in later commits.
+The repository now includes a production-oriented Dockerfile, a minimal static workload, NGINX runtime configuration, build context controls, container build documentation, and a GitHub Actions workflow that validates Docker builds. Kubernetes manifests, deployment workflows, and rollback scripts will be added in later commits.
 
 ## Planned Repository Structure
 
@@ -36,10 +36,12 @@ cicd-kubernetes-pipeline/
 ├── README.md
 ├── .github/
 │   └── workflows/
+│       └── build.yml
 ├── app/
 │   └── index.html
 ├── docs/
 │   ├── container-build.md
+│   ├── ci-workflow.md
 │   ├── pipeline-overview.md
 │   ├── release-strategy.md
 │   └── diagrams/
@@ -111,6 +113,7 @@ Rollout and health verification
 ## Documentation
 
 - [Container build](docs/container-build.md)
+- [CI build workflow](docs/ci-workflow.md)
 - [Pipeline overview](docs/pipeline-overview.md)
 - [Release strategy](docs/release-strategy.md)
 
@@ -125,8 +128,8 @@ This repository is designed to demonstrate:
 - Production-oriented documentation
 - Operational ownership beyond a successful build
 
-## Day 6 Commit
+## Day 9 Commit
 
 ```text
-feat: add production-ready docker build foundation
+ci: add docker build validation workflow
 ```

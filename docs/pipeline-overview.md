@@ -29,6 +29,8 @@ The continuous integration workflow should validate:
 - Kubernetes manifest syntax
 - Required files and metadata
 
+The current CI workflow validates required container files, builds the Docker image, inspects image metadata, and uploads a short-retention image artifact for traceability.
+
 ### 2. Build
 
 After validation succeeds, the pipeline builds a container image from the repository's `Dockerfile`.
@@ -158,7 +160,6 @@ Examples:
 
 Planned additions:
 
-- `.github/workflows/build.yml`
 - `.github/workflows/deploy.yml`
 - `k8s/deployment.yaml`
 - `k8s/service.yaml`

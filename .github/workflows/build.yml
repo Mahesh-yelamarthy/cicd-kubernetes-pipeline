@@ -1,0 +1,75 @@
+name: Build and Validate Container
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  IMAGE_NAME: cicd-kubernetes-pipeline
+
+jobs:
+  docker-build:
+    name: Docker build validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Derive image tag
+        id: meta
+        shell: bash
+        run: |
+          short_sha="${GITHUB_SHA::12}"
+          echo "tag=${IMAGE_NAME}:${short_sha}" >> "$GITHUB_OUTPUT"
+          echo "short_sha=${short_sha}" >> "$GITHUB_OUTPUT"
+
+      - name: Validate required files
+        shell: bash
+        run: |
+          test -f Dockerfile
+          test -f .dockerignore
+          test -f nginx/default.conf
+          test -f app/index.html
+
+      - name: Build container image
+        shell: bash
+        run: |
+          docker build \
+            --label "org.opencontainers.image.revision=${GITHUB_SHA}" \
+            --label "org.opencontainers.image.created=$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --tag "${{ steps.meta.outputs.tag }}" \
+            .
+
+      - name: Inspect built image
+        shell: bash
+        run: |
+          docker image inspect "${{ steps.meta.outputs.tag }}"
+          docker history --no-trunc "${{ steps.meta.outputs.tag }}"
+
+      - name: Export image artifact
+        shell: bash
+        run: |
+          mkdir -p build
+          docker save "${{ steps.meta.outputs.tag }}" -o "build/${IMAGE_NAME}-${{ steps.meta.outputs.short_sha }}.tar"
+
+      - name: Upload image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.IMAGE_NAME }}-${{ steps.meta.outputs.short_sha }}
+          path: build/*.tar
+          if-no-files-found: error
+          retention-days: 7
