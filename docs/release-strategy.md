@@ -95,6 +95,8 @@ Future manifests should define:
 - Replica count
 - Revision history limit
 
+The baseline manifests now define these controls for the demo workload. Future deployment automation should update only the image tag and then verify the rollout before recording the release.
+
 ## Release Gates
 
 Before deployment:

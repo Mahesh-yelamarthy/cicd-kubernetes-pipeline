@@ -67,7 +67,7 @@ Registry credentials should be provided through GitHub Actions secrets or worklo
 
 ### 5. Deploy
 
-The deployment workflow updates or applies the Kubernetes manifests.
+The deployment workflow updates or applies the Kubernetes manifests under `k8s/`.
 
 Expected deployment controls:
 
@@ -77,6 +77,8 @@ Expected deployment controls:
 - Deployment timeout
 - Clear command output
 - Serialized production deployments where required
+
+The current manifest set includes a namespace, deployment, and service. The deployment uses rolling updates, readiness and liveness probes, resource requests and limits, and an immutable image placeholder that future automation should replace with a Git SHA tag.
 
 ### 6. Verify
 
@@ -161,7 +163,5 @@ Examples:
 Planned additions:
 
 - `.github/workflows/deploy.yml`
-- `k8s/deployment.yaml`
-- `k8s/service.yaml`
 - `scripts/rollback.sh`
 - Deployment and rollback runbooks
