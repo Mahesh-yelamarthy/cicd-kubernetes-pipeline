@@ -23,9 +23,9 @@ The pipeline will gradually cover:
 
 ## Current Status
 
-Day 12 Kubernetes manifests are complete.
+Day 15 deployment automation is complete.
 
-The repository now includes a production-oriented Dockerfile, a minimal static workload, NGINX runtime configuration, build context controls, a GitHub Actions Docker build workflow, and baseline Kubernetes manifests. Deployment workflows and rollback scripts will be added in later commits.
+The repository now includes a production-oriented Dockerfile, a minimal static workload, NGINX runtime configuration, build context controls, a GitHub Actions Docker build workflow, baseline Kubernetes manifests, and guarded deployment automation. Rollback scripts will be added in later commits.
 
 ## Planned Repository Structure
 
@@ -42,6 +42,7 @@ cicd-kubernetes-pipeline/
 ├── docs/
 │   ├── container-build.md
 │   ├── ci-workflow.md
+│   ├── deployment-automation.md
 │   ├── pipeline-overview.md
 │   ├── release-strategy.md
 │   └── diagrams/
@@ -52,6 +53,7 @@ cicd-kubernetes-pipeline/
 ├── nginx/
 │   └── default.conf
 └── scripts/
+    └── deploy.sh
 ```
 
 ## Delivery Goals
@@ -113,10 +115,32 @@ Rollout and health verification
 | Configuration format | YAML |
 | Operational automation | Bash |
 
+## Deployment Automation
+
+The deployment script is stored at:
+
+```text
+scripts/deploy.sh
+```
+
+It applies Kubernetes manifests, updates the deployment to an immutable image tag, waits for rollout completion, and prints post-deployment state.
+
+Example:
+
+```bash
+./scripts/deploy.sh \
+  --image ghcr.io/mahesh-yelamarthy/cicd-kubernetes-pipeline:<git-sha> \
+  --namespace cicd-demo \
+  --timeout 120s
+```
+
+The script refuses untagged images, `latest`, and the manifest placeholder tag. This keeps deployments traceable and rollback-friendly.
+
 ## Documentation
 
 - [Container build](docs/container-build.md)
 - [CI build workflow](docs/ci-workflow.md)
+- [Deployment automation](docs/deployment-automation.md)
 - [Kubernetes manifests](docs/kubernetes-manifests.md)
 - [Pipeline overview](docs/pipeline-overview.md)
 - [Release strategy](docs/release-strategy.md)
@@ -132,8 +156,8 @@ This repository is designed to demonstrate:
 - Production-oriented documentation
 - Operational ownership beyond a successful build
 
-## Day 12 Commit
+## Day 15 Commit
 
 ```text
-feat: add kubernetes deployment manifests
+feat: add kubernetes deployment automation
 ```

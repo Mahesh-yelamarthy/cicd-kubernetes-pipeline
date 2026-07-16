@@ -28,7 +28,7 @@ The image value is intentionally not `latest`:
 ghcr.io/mahesh-yelamarthy/cicd-kubernetes-pipeline:replace-with-git-sha
 ```
 
-A future deployment workflow should replace this value with the Git SHA image produced by CI.
+The deployment automation replaces this value with the Git SHA image produced by CI or supplied by the operator.
 
 ## Apply Order
 
@@ -47,6 +47,13 @@ For manual validation, replace the image tag with a real immutable tag:
 ```bash
 kubectl -n cicd-demo set image deployment/cicd-kubernetes-pipeline \
   web=ghcr.io/mahesh-yelamarthy/cicd-kubernetes-pipeline:<git-sha>
+```
+
+The preferred path is to use the deployment script:
+
+```bash
+./scripts/deploy.sh \
+  --image ghcr.io/mahesh-yelamarthy/cicd-kubernetes-pipeline:<git-sha>
 ```
 
 ## Rollout Verification

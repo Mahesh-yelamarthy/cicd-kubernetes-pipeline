@@ -1,6 +1,6 @@
 # Pipeline Overview
 
-This document defines the intended delivery flow for the CI/CD Kubernetes Pipeline. It provides the architectural baseline for future implementation commits.
+This document defines the delivery flow for the CI/CD Kubernetes Pipeline. It provides the architectural baseline for build, validation, deployment, and future rollback automation.
 
 ## Objectives
 
@@ -78,7 +78,7 @@ Expected deployment controls:
 - Clear command output
 - Serialized production deployments where required
 
-The current manifest set includes a namespace, deployment, and service. The deployment uses rolling updates, readiness and liveness probes, resource requests and limits, and an immutable image placeholder that future automation should replace with a Git SHA tag.
+The current manifest set includes a namespace, deployment, and service. The deployment uses rolling updates, readiness and liveness probes, resource requests and limits, and an immutable image placeholder that `scripts/deploy.sh` replaces with a Git SHA tag.
 
 ### 6. Verify
 
@@ -97,6 +97,8 @@ Additional checks may include:
 - Service endpoint availability
 - Application health endpoint
 - Recent Kubernetes events
+
+The current deployment script waits for rollout status and prints deployment, pod, and service state after the image update.
 
 ### 7. Record
 
@@ -127,7 +129,7 @@ The project will separate continuous integration from deployment.
 | Workflow | Trigger | Responsibility |
 | --- | --- | --- |
 | Build workflow | Pull request and branch push | Validate configuration and build the container image. |
-| Deployment workflow | Protected branch or approved release | Deploy a known image to Kubernetes and verify the rollout. |
+| Deployment script | Manual operator run or future protected workflow | Deploy a known image to Kubernetes and verify the rollout. |
 
 This separation reduces the risk that every code validation event can change a runtime environment.
 
