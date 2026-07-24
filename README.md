@@ -23,9 +23,9 @@ The pipeline will gradually cover:
 
 ## Current Status
 
-Day 15 deployment automation is complete.
+Day 18 rollback automation is complete.
 
-The repository now includes a production-oriented Dockerfile, a minimal static workload, NGINX runtime configuration, build context controls, a GitHub Actions Docker build workflow, baseline Kubernetes manifests, and guarded deployment automation. Rollback scripts will be added in later commits.
+The repository now includes a production-oriented Dockerfile, a minimal static workload, NGINX runtime configuration, build context controls, a GitHub Actions Docker build workflow, baseline Kubernetes manifests, guarded deployment automation, and verified rollback automation.
 
 ## Planned Repository Structure
 
@@ -44,6 +44,7 @@ cicd-kubernetes-pipeline/
 │   ├── ci-workflow.md
 │   ├── deployment-automation.md
 │   ├── pipeline-overview.md
+│   ├── rollback-automation.md
 │   ├── release-strategy.md
 │   └── diagrams/
 ├── k8s/
@@ -53,7 +54,8 @@ cicd-kubernetes-pipeline/
 ├── nginx/
 │   └── default.conf
 └── scripts/
-    └── deploy.sh
+    ├── deploy.sh
+    └── rollback.sh
 ```
 
 ## Delivery Goals
@@ -136,6 +138,25 @@ Example:
 
 The script refuses untagged images, `latest`, and the manifest placeholder tag. This keeps deployments traceable and rollback-friendly.
 
+## Rollback Automation
+
+The rollback script is stored at:
+
+```text
+scripts/rollback.sh
+```
+
+It reads rollout history, runs `kubectl rollout undo`, waits for rollback rollout status, and prints post-rollback state.
+
+Example:
+
+```bash
+./scripts/rollback.sh \
+  --namespace cicd-demo \
+  --deployment cicd-kubernetes-pipeline \
+  --timeout 120s
+```
+
 ## Documentation
 
 - [Container build](docs/container-build.md)
@@ -143,6 +164,7 @@ The script refuses untagged images, `latest`, and the manifest placeholder tag. 
 - [Deployment automation](docs/deployment-automation.md)
 - [Kubernetes manifests](docs/kubernetes-manifests.md)
 - [Pipeline overview](docs/pipeline-overview.md)
+- [Rollback automation](docs/rollback-automation.md)
 - [Release strategy](docs/release-strategy.md)
 
 ## Recruiter Signal
@@ -156,8 +178,8 @@ This repository is designed to demonstrate:
 - Production-oriented documentation
 - Operational ownership beyond a successful build
 
-## Day 15 Commit
+## Day 18 Commit
 
 ```text
-feat: add kubernetes deployment automation
+feat: add kubernetes rollback automation
 ```

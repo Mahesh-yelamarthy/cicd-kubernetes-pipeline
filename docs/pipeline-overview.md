@@ -1,6 +1,6 @@
 # Pipeline Overview
 
-This document defines the delivery flow for the CI/CD Kubernetes Pipeline. It provides the architectural baseline for build, validation, deployment, and future rollback automation.
+This document defines the delivery flow for the CI/CD Kubernetes Pipeline. It provides the architectural baseline for build, validation, deployment, and rollback automation.
 
 ## Objectives
 
@@ -114,10 +114,10 @@ Successful releases should be traceable through:
 
 If rollout verification fails, the workflow should stop and provide clear rollback instructions.
 
-Future automation will support:
+Rollback automation supports:
 
 ```bash
-kubectl rollout undo deployment/<name>
+./scripts/rollback.sh --namespace cicd-demo --deployment cicd-kubernetes-pipeline
 ```
 
 Rollback success must also be verified with `kubectl rollout status`.
@@ -165,5 +165,5 @@ Examples:
 Planned additions:
 
 - `.github/workflows/deploy.yml`
-- `scripts/rollback.sh`
-- Deployment and rollback runbooks
+- Deployment workflow runbooks
+- Production troubleshooting guides

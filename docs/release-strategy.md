@@ -95,7 +95,7 @@ Future manifests should define:
 - Replica count
 - Revision history limit
 
-The baseline manifests now define these controls for the demo workload. Future deployment automation should update only the image tag and then verify the rollout before recording the release.
+The baseline manifests now define these controls for the demo workload. Deployment automation should update only the image tag and then verify the rollout before recording the release.
 
 ## Release Gates
 
@@ -127,6 +127,21 @@ Rollback should be initiated when:
 - A critical functional regression is confirmed.
 
 The rollback target should be the most recent known-good Kubernetes revision or immutable image.
+
+The current rollback automation is:
+
+```text
+scripts/rollback.sh
+```
+
+Use it to read rollout history, roll back to the previous or specified revision, and verify rollout status:
+
+```bash
+./scripts/rollback.sh \
+  --namespace cicd-demo \
+  --deployment cicd-kubernetes-pipeline \
+  --timeout 120s
+```
 
 Rollback does not replace incident analysis. After service is restored, the team should document:
 
@@ -160,8 +175,8 @@ This creates a visible approval boundary without embedding manual credentials in
 | Release owner | Confirms readiness, monitors rollout, and coordinates rollback if needed. |
 | Service owner | Verifies application behavior and owns post-release issues. |
 
-## Day 3 Scope
+## Current Scope
 
-This version establishes release policy only.
+This version establishes release policy, deployment automation expectations, and rollback automation expectations.
 
-Future commits will implement the container build, CI workflow, Kubernetes manifests, deployment workflow, rollback automation, release checklist, and production deployment guide.
+Future commits will implement the deployment workflow, release checklist, and production deployment guide.

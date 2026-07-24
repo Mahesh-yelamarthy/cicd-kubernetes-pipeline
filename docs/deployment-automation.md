@@ -108,6 +108,15 @@ kubectl -n cicd-demo logs <pod-name> -c web
 kubectl -n cicd-demo get events --sort-by=.lastTimestamp
 ```
 
+If rollback is the correct mitigation, use:
+
+```bash
+./scripts/rollback.sh \
+  --namespace cicd-demo \
+  --deployment cicd-kubernetes-pipeline \
+  --timeout 120s
+```
+
 ## GitHub Actions Integration
 
 This script is suitable for a future deployment workflow after image publishing is added.
@@ -119,5 +128,6 @@ The workflow should:
 - Run `scripts/deploy.sh --image ghcr.io/mahesh-yelamarthy/cicd-kubernetes-pipeline:${GITHUB_SHA}`.
 - Store deployment logs as workflow output.
 - Stop the pipeline if rollout verification fails.
+- Call rollback automation only from an approved recovery workflow or manual incident response step.
 
 Cluster credentials, registry tokens, and kubeconfig data must be stored in GitHub Actions secrets or an approved secret manager. They must not be committed to this repository.
