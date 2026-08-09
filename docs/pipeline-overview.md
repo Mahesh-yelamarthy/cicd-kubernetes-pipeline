@@ -122,6 +122,12 @@ Rollback automation supports:
 
 Rollback success must also be verified with `kubectl rollout status`.
 
+For the full operator procedure, use the deployment runbook:
+
+```text
+docs/deployment-runbook.md
+```
+
 ## Workflow Separation
 
 The project will separate continuous integration from deployment.
@@ -165,5 +171,4 @@ Examples:
 Planned additions:
 
 - `.github/workflows/deploy.yml`
-- Deployment workflow runbooks
 - Production troubleshooting guides

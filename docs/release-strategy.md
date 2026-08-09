@@ -152,6 +152,16 @@ Rollback does not replace incident analysis. After service is restored, the team
 - Detection method
 - Corrective action
 
+## Deployment Runbook
+
+The current deployment runbook is:
+
+```text
+docs/deployment-runbook.md
+```
+
+Use it for pre-deployment checks, dry-run validation, rollout verification, failure triage, rollback decision criteria, and release evidence capture.
+
 ## Production Approval
 
 The future deployment workflow should use GitHub Environments for production.
@@ -177,6 +187,6 @@ This creates a visible approval boundary without embedding manual credentials in
 
 ## Current Scope
 
-This version establishes release policy, deployment automation expectations, and rollback automation expectations.
+This version establishes release policy, deployment automation expectations, rollback automation expectations, and an operator deployment runbook.
 
-Future commits will implement the deployment workflow, release checklist, and production deployment guide.
+Future commits will implement the deployment workflow, release checklist, and production troubleshooting guide.
