@@ -128,6 +128,12 @@ For the full operator procedure, use the deployment runbook:
 docs/deployment-runbook.md
 ```
 
+For failed deployment diagnosis, use:
+
+```text
+docs/deployment-troubleshooting.md
+```
+
 ## Workflow Separation
 
 The project will separate continuous integration from deployment.
@@ -171,4 +177,4 @@ Examples:
 Planned additions:
 
 - `.github/workflows/deploy.yml`
-- Production troubleshooting guides
+- Release checklist

@@ -23,9 +23,9 @@ The pipeline will gradually cover:
 
 ## Current Status
 
-Day 21 deployment runbook is complete.
+Day 24 deployment troubleshooting guide is complete.
 
-The repository now includes a production-oriented Dockerfile, a minimal static workload, NGINX runtime configuration, build context controls, a GitHub Actions Docker build workflow, baseline Kubernetes manifests, guarded deployment automation, verified rollback automation, and an operator-ready deployment runbook.
+The repository now includes a production-oriented Dockerfile, a minimal static workload, NGINX runtime configuration, build context controls, a GitHub Actions Docker build workflow, baseline Kubernetes manifests, guarded deployment automation, verified rollback automation, an operator-ready deployment runbook, and a deployment troubleshooting guide.
 
 ## Planned Repository Structure
 
@@ -42,8 +42,9 @@ cicd-kubernetes-pipeline/
 ├── docs/
 │   ├── container-build.md
 │   ├── ci-workflow.md
-│   ├── deployment-runbook.md
 │   ├── deployment-automation.md
+│   ├── deployment-runbook.md
+│   ├── deployment-troubleshooting.md
 │   ├── pipeline-overview.md
 │   ├── rollback-automation.md
 │   ├── release-strategy.md
@@ -164,6 +165,7 @@ Example:
 - [CI build workflow](docs/ci-workflow.md)
 - [Deployment automation](docs/deployment-automation.md)
 - [Deployment runbook](docs/deployment-runbook.md)
+- [Deployment troubleshooting](docs/deployment-troubleshooting.md)
 - [Kubernetes manifests](docs/kubernetes-manifests.md)
 - [Pipeline overview](docs/pipeline-overview.md)
 - [Rollback automation](docs/rollback-automation.md)
@@ -180,8 +182,8 @@ This repository is designed to demonstrate:
 - Production-oriented documentation
 - Operational ownership beyond a successful build
 
-## Day 21 Commit
+## Day 24 Commit
 
 ```text
-docs: add deployment runbook
+docs: add deployment troubleshooting guide
 ```

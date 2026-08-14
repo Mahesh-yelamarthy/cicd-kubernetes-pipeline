@@ -86,6 +86,12 @@ Expected result:
 
 If dry-run fails, stop the release and fix the configuration before retrying.
 
+Use the deployment troubleshooting guide when dry-run or rollout validation fails:
+
+```text
+docs/deployment-troubleshooting.md
+```
+
 ## Deployment Procedure
 
 Run the deployment:
@@ -172,6 +178,12 @@ Common failure classes:
 
 Do not keep re-running the deployment command without understanding the failure class. Repeated retries can hide the original evidence and increase incident noise.
 
+For deeper diagnosis of image pulls, crash loops, probe failures, rollout timeouts, service routing, and rollback failures, use:
+
+```text
+docs/deployment-troubleshooting.md
+```
+
 ## Rollback Decision
 
 Roll back when:
@@ -239,3 +251,5 @@ After a failed release:
 3. Roll back when release-related impact is confirmed.
 4. Identify the missing validation that allowed the issue through.
 5. Add a test, script check, or runbook update before retrying.
+
+Use `docs/deployment-troubleshooting.md` to convert the failure into a specific preventive follow-up.

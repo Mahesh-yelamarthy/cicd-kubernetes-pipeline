@@ -162,6 +162,14 @@ docs/deployment-runbook.md
 
 Use it for pre-deployment checks, dry-run validation, rollout verification, failure triage, rollback decision criteria, and release evidence capture.
 
+The current troubleshooting guide is:
+
+```text
+docs/deployment-troubleshooting.md
+```
+
+Use it when image pulls, crash loops, probes, rollout timeouts, service routing, or rollback verification fail.
+
 ## Production Approval
 
 The future deployment workflow should use GitHub Environments for production.
@@ -187,6 +195,6 @@ This creates a visible approval boundary without embedding manual credentials in
 
 ## Current Scope
 
-This version establishes release policy, deployment automation expectations, rollback automation expectations, and an operator deployment runbook.
+This version establishes release policy, deployment automation expectations, rollback automation expectations, an operator deployment runbook, and a deployment troubleshooting guide.
 
-Future commits will implement the deployment workflow, release checklist, and production troubleshooting guide.
+Future commits will implement the deployment workflow, release checklist, and production incident response documentation.
