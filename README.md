@@ -23,9 +23,9 @@ The pipeline will gradually cover:
 
 ## Current Status
 
-Day 24 deployment troubleshooting guide is complete.
+Day 27 release checklist is complete.
 
-The repository now includes a production-oriented Dockerfile, a minimal static workload, NGINX runtime configuration, build context controls, a GitHub Actions Docker build workflow, baseline Kubernetes manifests, guarded deployment automation, verified rollback automation, an operator-ready deployment runbook, and a deployment troubleshooting guide.
+The repository now includes a production-oriented Dockerfile, a minimal static workload, NGINX runtime configuration, build context controls, a GitHub Actions Docker build workflow, baseline Kubernetes manifests, guarded deployment automation, verified rollback automation, an operator-ready deployment runbook, a deployment troubleshooting guide, and a release checklist.
 
 ## Planned Repository Structure
 
@@ -46,6 +46,7 @@ cicd-kubernetes-pipeline/
 │   ├── deployment-runbook.md
 │   ├── deployment-troubleshooting.md
 │   ├── pipeline-overview.md
+│   ├── release-checklist.md
 │   ├── rollback-automation.md
 │   ├── release-strategy.md
 │   └── diagrams/
@@ -168,6 +169,7 @@ Example:
 - [Deployment troubleshooting](docs/deployment-troubleshooting.md)
 - [Kubernetes manifests](docs/kubernetes-manifests.md)
 - [Pipeline overview](docs/pipeline-overview.md)
+- [Release checklist](docs/release-checklist.md)
 - [Rollback automation](docs/rollback-automation.md)
 - [Release strategy](docs/release-strategy.md)
 
@@ -182,8 +184,8 @@ This repository is designed to demonstrate:
 - Production-oriented documentation
 - Operational ownership beyond a successful build
 
-## Day 24 Commit
+## Day 27 Commit
 
 ```text
-docs: add deployment troubleshooting guide
+docs: add release checklist
 ```

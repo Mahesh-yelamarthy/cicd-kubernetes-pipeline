@@ -14,6 +14,12 @@ Use this runbook for:
 
 This runbook assumes the image was already built and validated by CI. It does not replace application testing, security review, or production approval.
 
+Use the release checklist before and after deployment:
+
+```text
+docs/release-checklist.md
+```
+
 ## Required Inputs
 
 | Input | Example | Notes |
@@ -65,6 +71,7 @@ Confirm the release owner has reviewed:
 - Expected user impact
 - Rollback path
 - Monitoring or manual verification plan
+- Release checklist status
 
 ## Dry Run
 
@@ -253,3 +260,5 @@ After a failed release:
 5. Add a test, script check, or runbook update before retrying.
 
 Use `docs/deployment-troubleshooting.md` to convert the failure into a specific preventive follow-up.
+
+Use `docs/release-checklist.md` to record final release evidence and follow-up ownership.

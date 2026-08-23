@@ -134,6 +134,12 @@ For failed deployment diagnosis, use:
 docs/deployment-troubleshooting.md
 ```
 
+For release readiness and evidence capture, use:
+
+```text
+docs/release-checklist.md
+```
+
 ## Workflow Separation
 
 The project will separate continuous integration from deployment.
@@ -177,4 +183,4 @@ Examples:
 Planned additions:
 
 - `.github/workflows/deploy.yml`
-- Release checklist
+- Production incident response documentation

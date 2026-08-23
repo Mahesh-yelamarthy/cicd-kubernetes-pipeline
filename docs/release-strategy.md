@@ -162,6 +162,14 @@ docs/deployment-runbook.md
 
 Use it for pre-deployment checks, dry-run validation, rollout verification, failure triage, rollback decision criteria, and release evidence capture.
 
+The current release checklist is:
+
+```text
+docs/release-checklist.md
+```
+
+Use it to confirm release inputs, artifact integrity, dry-run status, deployment verification, rollback criteria, and post-release evidence.
+
 The current troubleshooting guide is:
 
 ```text
@@ -195,6 +203,6 @@ This creates a visible approval boundary without embedding manual credentials in
 
 ## Current Scope
 
-This version establishes release policy, deployment automation expectations, rollback automation expectations, an operator deployment runbook, and a deployment troubleshooting guide.
+This version establishes release policy, deployment automation expectations, rollback automation expectations, an operator deployment runbook, a deployment troubleshooting guide, and a release checklist.
 
-Future commits will implement the deployment workflow, release checklist, and production incident response documentation.
+Future commits will implement the deployment workflow and production incident response documentation.
