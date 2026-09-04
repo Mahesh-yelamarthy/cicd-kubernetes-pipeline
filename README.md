@@ -2,7 +2,7 @@
 
 Production-oriented CI/CD project for building, validating, releasing, and deploying containerized applications to Kubernetes.
 
-This repository is part of a 30-day SRE / DevOps portfolio build. It will evolve incrementally from delivery architecture and release policy into container builds, GitHub Actions workflows, Kubernetes manifests, deployment automation, rollback tooling, runbooks, and production troubleshooting guidance.
+This repository is part of a 30-day SRE / DevOps portfolio build. It evolved incrementally from delivery architecture and release policy into container builds, GitHub Actions workflows, Kubernetes manifests, deployment automation, rollback tooling, runbooks, production troubleshooting guidance, and production readiness review documentation.
 
 ## Purpose
 
@@ -23,9 +23,9 @@ The pipeline will gradually cover:
 
 ## Current Status
 
-Day 27 release checklist is complete.
+Day 30 production readiness review is complete.
 
-The repository now includes a production-oriented Dockerfile, a minimal static workload, NGINX runtime configuration, build context controls, a GitHub Actions Docker build workflow, baseline Kubernetes manifests, guarded deployment automation, verified rollback automation, an operator-ready deployment runbook, a deployment troubleshooting guide, and a release checklist.
+The repository now includes a production-oriented Dockerfile, a minimal static workload, NGINX runtime configuration, build context controls, a GitHub Actions Docker build workflow, baseline Kubernetes manifests, guarded deployment automation, verified rollback automation, an operator-ready deployment runbook, a deployment troubleshooting guide, a release checklist, and a production readiness review.
 
 ## Planned Repository Structure
 
@@ -46,6 +46,7 @@ cicd-kubernetes-pipeline/
 │   ├── deployment-runbook.md
 │   ├── deployment-troubleshooting.md
 │   ├── pipeline-overview.md
+│   ├── production-readiness-review.md
 │   ├── release-checklist.md
 │   ├── rollback-automation.md
 │   ├── release-strategy.md
@@ -169,6 +170,7 @@ Example:
 - [Deployment troubleshooting](docs/deployment-troubleshooting.md)
 - [Kubernetes manifests](docs/kubernetes-manifests.md)
 - [Pipeline overview](docs/pipeline-overview.md)
+- [Production readiness review](docs/production-readiness-review.md)
 - [Release checklist](docs/release-checklist.md)
 - [Rollback automation](docs/rollback-automation.md)
 - [Release strategy](docs/release-strategy.md)
@@ -183,9 +185,10 @@ This repository is designed to demonstrate:
 - Release and rollback discipline
 - Production-oriented documentation
 - Operational ownership beyond a successful build
+- Production readiness review across controls, risks, and evidence
 
-## Day 27 Commit
+## Day 30 Commit
 
 ```text
-docs: add release checklist
+docs: add production readiness review
 ```

@@ -16,6 +16,7 @@ Use it with:
 - `docs/deployment-runbook.md`
 - `docs/deployment-troubleshooting.md`
 - `docs/rollback-automation.md`
+- `docs/production-readiness-review.md`
 
 ## Release Inputs
 
@@ -243,3 +244,5 @@ After a failed release:
 - [ ] Add a test, manifest check, workflow check, or runbook update.
 
 The release is complete only when verification evidence and follow-up ownership are recorded.
+
+Use `docs/production-readiness-review.md` for the broader review of pipeline controls, operational risks, production hardening backlog, and final portfolio signal.

@@ -140,6 +140,12 @@ For release readiness and evidence capture, use:
 docs/release-checklist.md
 ```
 
+For the final production readiness review, use:
+
+```text
+docs/production-readiness-review.md
+```
+
 ## Workflow Separation
 
 The project will separate continuous integration from deployment.
@@ -183,4 +189,6 @@ Examples:
 Planned additions:
 
 - `.github/workflows/deploy.yml`
-- Production incident response documentation
+- Protected deployment approvals
+- Registry publishing with immutable Git SHA tags
+- Deployment evidence artifacts
